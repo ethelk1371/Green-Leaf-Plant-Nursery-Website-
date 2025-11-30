@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLeaf Plant Nursery - Home</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="GreenLeaf Logo">
+            <h1>GreenLeaf Plant Nursery</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Image Slider (JavaScript) -->
+        <div class="slider">
+            <img src="images/slider1.jpg" alt="Slide 1" class="slide active">
+            <img src="images/slider2.jpg" alt="Slide 2" class="slide">
+            <img src="images/slider3.jpg" alt="Slide 3" class="slide">
+            <button class="prev" onclick="changeSlide(-1)">❮</button>
+            <button class="next" onclick="changeSlide(1)">❯</button>
+        </div>
+
+        <section class="welcome">
+            <h2>Welcome to GreenLeaf</h2>
+            <p>Your trusted source for healthy indoor & outdoor plants in Kampala. We help you bring nature home!</p>
+            <a href="services.html" class="cta">Explore Plants</a>
+            <a href="contact.html" class="cta secondary">Get In Touch</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 GreenLeaf Plant Nursery | Developed by Kiboneka Shane</p>
+        <div class="social">
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">WhatsApp</a>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+        
+        function showSlide(n) {
+            slides.forEach(s => s.classList.remove("active"));
+            slideIndex = (n + slides.length) % slides.length;
+            slides[slideIndex].classList.add("active");
+        }
+        
+        function changeSlide(n) {
+            showSlide(slideIndex + n);
+        }
+        
+        setInterval(() => changeSlide(1), 5000); // Auto-slide every 5 sec
+        showSlide(0);
+    </script>
+</body>
+</html>
